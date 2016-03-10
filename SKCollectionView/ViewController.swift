@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }()
     
     
-    var array = ["OrdinaryViewController","WaterfallViewController","PinterestViewController","StickyHeadersViewController"]
+    var array = ["OrdinaryViewController","WaterfallViewController","PinterestViewController","StickyHeadersViewController","NoSolidWideViewController"]
     
     /**
      配置View

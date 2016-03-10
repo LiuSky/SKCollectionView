@@ -19,6 +19,8 @@
 		33E627651C8FF56F000EEE87 /* StickyHeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6275C1C8FF56F000EEE87 /* StickyHeadersViewController.swift */; };
 		33E627661C8FF56F000EEE87 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6275E1C8FF56F000EEE87 /* CHTCollectionViewWaterfallLayout.swift */; };
 		33E627671C8FF56F000EEE87 /* WaterfallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6275F1C8FF56F000EEE87 /* WaterfallViewController.swift */; };
+		33E6276F1C910730000EEE87 /* NoSolidWideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E6276E1C910730000EEE87 /* NoSolidWideViewController.swift */; };
+		33E627711C91079D000EEE87 /* NotFixedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E627701C91079D000EEE87 /* NotFixedFlowLayout.swift */; };
 		4A08989F8F01B332F43EC7EC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5619CBB7FDD5054D3CC326DD /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		33E6275C1C8FF56F000EEE87 /* StickyHeadersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyHeadersViewController.swift; sourceTree = "<group>"; };
 		33E6275E1C8FF56F000EEE87 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		33E6275F1C8FF56F000EEE87 /* WaterfallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallViewController.swift; sourceTree = "<group>"; };
+		33E6276E1C910730000EEE87 /* NoSolidWideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSolidWideViewController.swift; sourceTree = "<group>"; };
+		33E627701C91079D000EEE87 /* NotFixedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFixedFlowLayout.swift; sourceTree = "<group>"; };
 		5619CBB7FDD5054D3CC326DD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,7 @@
 		33E627531C8FF56F000EEE87 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				33E6276D1C910717000EEE87 /* NoSolidWide */,
 				33E627541C8FF56F000EEE87 /* Ordinary */,
 				33E627561C8FF56F000EEE87 /* Pinterest */,
 				33E627591C8FF56F000EEE87 /* StickyHeadersLayout */,
@@ -130,6 +135,15 @@
 				33E6275F1C8FF56F000EEE87 /* WaterfallViewController.swift */,
 			);
 			path = Waterfall;
+			sourceTree = "<group>";
+		};
+		33E6276D1C910717000EEE87 /* NoSolidWide */ = {
+			isa = PBXGroup;
+			children = (
+				33E6276E1C910730000EEE87 /* NoSolidWideViewController.swift */,
+				33E627701C91079D000EEE87 /* NotFixedFlowLayout.swift */,
+			);
+			path = NoSolidWide;
 			sourceTree = "<group>";
 		};
 		62B5D600CE427A69F8B32F36 /* Pods */ = {
@@ -280,6 +294,8 @@
 				33E627631C8FF56F000EEE87 /* StickyHeadersCollectionReusableView.swift in Sources */,
 				33E627421C8FF408000EEE87 /* AppDelegate.swift in Sources */,
 				33E627621C8FF56F000EEE87 /* PinterestViewController.swift in Sources */,
+				33E627711C91079D000EEE87 /* NotFixedFlowLayout.swift in Sources */,
+				33E6276F1C910730000EEE87 /* NoSolidWideViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
