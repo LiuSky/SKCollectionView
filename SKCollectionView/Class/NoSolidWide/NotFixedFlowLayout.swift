@@ -61,7 +61,6 @@ class NotFixedFlowLayout: UICollectionViewFlowLayout {
     }
 }
 
-
 // MARK: - <#Description#>
 extension UICollectionViewLayoutAttributes {
     
