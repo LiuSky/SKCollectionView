@@ -87,12 +87,11 @@ extension NoSolidWideViewController: UICollectionViewDataSource,UICollectionView
         return cell
     }
     
-    func  checkCellLimitWidth(var cellWidth: CGFloat) -> CGFloat {
+    func  checkCellLimitWidth(cellWidth: CGFloat) -> CGFloat {
         
         let limitWidth = self.view.frame.width-12-5
-        if cellWidth >= limitWidth {
-            cellWidth = limitWidth - 12
-            return cellWidth
+        if  cellWidth >= limitWidth {
+            return limitWidth - 12
         }
         return cellWidth + 16
     }

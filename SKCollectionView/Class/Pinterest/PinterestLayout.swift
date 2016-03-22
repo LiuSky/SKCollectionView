@@ -134,7 +134,11 @@ class PinterestLayout: UICollectionViewLayout {
                 yOffsets[column] = yOffsets[column] + height
                 
                 //第几个索引。
-                column = column >= (numberOfColumns - 1) ? 0 : ++column
+                if column >= numberOfColumns - 1 {
+                    column = 0
+                } else {
+                    column += 1
+                }
             }
         }
     }
