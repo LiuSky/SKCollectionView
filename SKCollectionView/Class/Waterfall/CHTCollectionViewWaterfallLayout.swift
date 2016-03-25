@@ -289,6 +289,7 @@ class CHTCollectionViewWaterfallLayout : UICollectionViewLayout{
             }
         }
         
+        
         for i in 0 ..< self.unionRects.count {
             let t = self.unionRects.count - i - 1
             if CGRectIntersectsRect(rect, self.unionRects.objectAtIndex(t).CGRectValue){
