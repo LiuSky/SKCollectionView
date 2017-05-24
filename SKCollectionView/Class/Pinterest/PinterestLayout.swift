@@ -34,7 +34,6 @@ class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
         }
         return false
     }
-    
 }
 
 
@@ -99,7 +98,7 @@ class PinterestLayout: UICollectionViewLayout {
             
             
             for item in 0..<collectionView!.numberOfItems(inSection: 0) {
-                print(item)
+                
                 //计算出每个IndexPath
                 let indexPath = IndexPath(item: item, section: 0)
                 

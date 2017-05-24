@@ -13,16 +13,17 @@ class NoSolidWideViewController: UIViewController {
     fileprivate lazy var collectionView: UICollectionView = {
         
         let layout = NotFixedFlowLayout()
-        layout.minimumLineSpacing = 12
-        layout.sectionInset = UIEdgeInsetsMake(12, 12, 12, 5)
+        layout.cellPadding = 12
+        layout.cellHeight = 40
+        layout.delegate = self
         
         let temporaryCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         temporaryCollectionView.backgroundColor = UIColor.white
         temporaryCollectionView.backgroundView = nil
         temporaryCollectionView.delegate = self
         temporaryCollectionView.dataSource = self
-        temporaryCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        temporaryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
+        temporaryCollectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        temporaryCollectionView.register(LabelCell.self, forCellWithReuseIdentifier: NSStringFromClass(LabelCell.self))
         return temporaryCollectionView
     }()
     
@@ -71,19 +72,11 @@ extension NoSolidWideViewController: UICollectionViewDataSource,UICollectionView
         return array.count
     }
 
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let text = array[indexPath.row] as NSString
-        let size: CGSize = text.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)])
-        let width = checkCellLimitWidth(ceil(size.width))
-        return CGSize(width: width, height: 35)
-    }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(UICollectionViewCell.self), for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(LabelCell.self), for: indexPath) as! LabelCell
         cell.contentView.backgroundColor = UIColor.red
+        cell.label.text = array[indexPath.row]
         return cell
     }
     
@@ -96,3 +89,39 @@ extension NoSolidWideViewController: UICollectionViewDataSource,UICollectionView
         return cellWidth + 16
     }
 }
+
+
+// MARK: -
+extension NoSolidWideViewController: NotFixedLayoutDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, widthForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        
+        let text = array[indexPath.row] as NSString
+        let size: CGSize = text.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)])
+        let width = checkCellLimitWidth(ceil(size.width))
+        return width
+    }
+}
+
+final class LabelCell: UICollectionViewCell {
+    
+    public var label = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .center
+        self.contentView.addSubview(label)
+        
+        label.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.contentView)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+

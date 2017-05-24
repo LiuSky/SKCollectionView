@@ -15,8 +15,6 @@ class OrdinaryViewController: UIViewController {
        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-//        layout.minimumLineSpacing = 20.0
-//        layout.minimumInteritemSpacing = 10.0
         layout.itemSize = CGSize(width: 100,height: 100)
         
         let temporartCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
