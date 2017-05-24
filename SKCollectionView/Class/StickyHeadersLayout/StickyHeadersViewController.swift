@@ -12,21 +12,21 @@ class StickyHeadersViewController: UIViewController {
 
     var array = ["星期一","星期二","星期三","星期四","星期五"]
     
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         
         let layout = StickyHeadersLayout()
-        let width = UIScreen.mainScreen().bounds.size.width/2
+        let width = UIScreen.main.bounds.size.width/2
         layout.itemSize = CGSize(width: width, height: width)
-        layout.headerReferenceSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: 50)
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 50)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        let temporaryCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        temporaryCollectionView.backgroundColor = UIColor.whiteColor()
+        let temporaryCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        temporaryCollectionView.backgroundColor = UIColor.white
         temporaryCollectionView.backgroundView = nil
         temporaryCollectionView.dataSource = self
-        temporaryCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
-       temporaryCollectionView.registerClass(StickyHeadersCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: NSStringFromClass(StickyHeadersCollectionReusableView.self))
+        temporaryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
+       temporaryCollectionView.register(StickyHeadersCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: NSStringFromClass(StickyHeadersCollectionReusableView.self))
         return temporaryCollectionView
     }()
     
@@ -42,14 +42,14 @@ class StickyHeadersViewController: UIViewController {
      配置位置
      */
     func configurationLocation() {
-        collectionView.snp_makeConstraints { (make) -> Void in
+        collectionView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         configurationView()
         configurationLocation()
     }
@@ -65,24 +65,24 @@ class StickyHeadersViewController: UIViewController {
 // MARK: - <#UICollectionViewDataSource#>
 extension StickyHeadersViewController: UICollectionViewDataSource {
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return array.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: NSStringFromClass(StickyHeadersCollectionReusableView.self), forIndexPath: indexPath) as! StickyHeadersCollectionReusableView
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NSStringFromClass(StickyHeadersCollectionReusableView.self), for: indexPath) as! StickyHeadersCollectionReusableView
         header.title = array[indexPath.section]
         return header
     }
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(UICollectionViewCell.self), forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(UICollectionViewCell.self), for: indexPath)
         cell.backgroundColor = generateColors().diff
         return cell
     }

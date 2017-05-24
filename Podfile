@@ -1,7 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 #布局
-pod 'SnapKit'
+target :SKCollectionView  do
+    pod 'SnapKit'
+    
+    
+end

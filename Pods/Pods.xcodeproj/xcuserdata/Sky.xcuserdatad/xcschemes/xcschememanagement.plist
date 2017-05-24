@@ -4,25 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-SKCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>DADEDA1CAB9F998932ABF08230D4BFAB</key>
+		<key>0128165F5E9D81608341254D96183588</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB57BAD769666D2CD91B650DB10CB847</key>
+		<key>FFEADBF788CF68B6DA79C2B819C763A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

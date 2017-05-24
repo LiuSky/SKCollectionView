@@ -12,19 +12,19 @@ import AVFoundation
 class PinterestViewController: UIViewController {
 
     
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         
         let layout = PinterestLayout()
         layout.cellPadding = 5
         layout.delegate = self
         layout.numberOfColumns = 2
         
-        let temporaryCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        temporaryCollectionView.backgroundColor = UIColor.whiteColor()
+        let temporaryCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        temporaryCollectionView.backgroundColor = UIColor.white
         temporaryCollectionView.backgroundView = nil
         temporaryCollectionView.dataSource = self
         temporaryCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        temporaryCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
+        temporaryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
         return temporaryCollectionView
     }()
     
@@ -40,14 +40,14 @@ class PinterestViewController: UIViewController {
      配置位置
      */
     func configurationLocation() {
-        collectionView.snp_makeConstraints { (make) -> Void in
+        collectionView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         configurationView()
         configurationLocation()
     }
@@ -75,16 +75,16 @@ class PinterestViewController: UIViewController {
 
 extension PinterestViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(UICollectionViewCell.self), forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(UICollectionViewCell.self), for: indexPath)
         if indexPath.row%3 == 0 {
-            cell.contentView.backgroundColor = UIColor.redColor()
+            cell.contentView.backgroundColor = UIColor.red
         } else {
-            cell.contentView.backgroundColor = UIColor.yellowColor()
+            cell.contentView.backgroundColor = UIColor.yellow
         }
         return cell
     }
@@ -93,23 +93,23 @@ extension PinterestViewController: UICollectionViewDataSource {
 extension PinterestViewController: PinterestLayoutDelegate {
     
     
-    func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         
         let size: CGSize!
         
         if indexPath.row%3 == 0 {
-            size = CGSizeMake(100, 80)
+            size = CGSize(width: 100, height: 80)
         } else {
-            size = CGSizeMake(100, 110)
+            size = CGSize(width: 100, height: 110)
         }
         
         
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRectWithAspectRatioInsideRect(size, boundingRect)
+        let rect = AVMakeRect(aspectRatio: size, insideRect: boundingRect)
         return rect.height
     }
     
-    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         return 60
     }
     

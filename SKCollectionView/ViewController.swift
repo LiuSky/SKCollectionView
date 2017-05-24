@@ -11,20 +11,20 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    private lazy var tableView: UITableView = {
+    fileprivate lazy var tableView: UITableView = {
         
         let temporaryTableView = UITableView()
-        temporaryTableView.backgroundColor = UIColor.whiteColor()
+        temporaryTableView.backgroundColor = UIColor.white
         temporaryTableView.backgroundView = nil
         temporaryTableView.dataSource = self
         temporaryTableView.delegate = self
         temporaryTableView.tableFooterView = UIView()
-        temporaryTableView.registerClass(UITableViewCell.self , forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
+        temporaryTableView.register(UITableViewCell.self , forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
         return temporaryTableView
     }()
     
     
-    var array = ["OrdinaryViewController","WaterfallViewController","PinterestViewController","StickyHeadersViewController","NoSolidWideViewController"]
+    var array = ["OrdinaryViewController","PinterestViewController","StickyHeadersViewController","NoSolidWideViewController"]
     
     /**
      配置View
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
      配置位置
      */
     func configurationLocation() {
-        tableView.snp_makeConstraints { (make) -> Void in
+        tableView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
     }
@@ -51,15 +51,15 @@ class ViewController: UIViewController {
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
         var indexPath = self.tableView.indexPathForSelectedRow
         if  indexPath == nil {
-            indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            indexPath = IndexPath(row: 0, section: 0)
         }
-        self.tableView.deselectRowAtIndexPath(indexPath!, animated:true)
+        self.tableView.deselectRow(at: indexPath!, animated:true)
     }
     
     
@@ -74,18 +74,18 @@ class ViewController: UIViewController {
 // MARK: -
 extension ViewController: UITableViewDataSource,UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self))
         cell?.textLabel?.text = "\(array[indexPath.row])"
         return cell!
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let className = "SKCollectionView.\(self.array[indexPath.row])"
         let aClass = NSClassFromString(className) as! UIViewController.Type

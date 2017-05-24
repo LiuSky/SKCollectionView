@@ -12,42 +12,42 @@ import UIKit
 /// - 不滚宽的排列
 class NotFixedFlowLayout: UICollectionViewFlowLayout {
     
-    override  func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override  func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
        
-        let attributesToReturn = super.layoutAttributesForElementsInRect(rect)
+        let attributesToReturn = super.layoutAttributesForElements(in: rect)
         for attributes in attributesToReturn! {
             
             if attributes.representedElementKind == nil {
                 let indexPath = attributes.indexPath
-                attributes.frame = self.layoutAttributesForItemAtIndexPath(indexPath)!.frame
+                attributes.frame = self.layoutAttributesForItem(at: indexPath)!.frame
             }
         }
         return attributesToReturn
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         
-        let currentItemAttributes = super.layoutAttributesForItemAtIndexPath(indexPath)
+        let currentItemAttributes = super.layoutAttributesForItem(at: indexPath)
         
         let sectionInset = self.sectionInset
         let isFirstItemInSection = indexPath.item == 0
-        let layoutWidth = CGRectGetWidth(self.collectionView!.frame) - sectionInset.left - sectionInset.right
+        let layoutWidth = self.collectionView!.frame.width - sectionInset.left - sectionInset.right
         
         if isFirstItemInSection {
             currentItemAttributes?.alignFrameWithSectionInset(sectionInset)
             return currentItemAttributes
         }
         
-        let  previousIndexPath = NSIndexPath(forItem: indexPath.item-1, inSection: indexPath.section)
-        let  previousFrame = self.layoutAttributesForItemAtIndexPath(previousIndexPath)?.frame
+        let  previousIndexPath = IndexPath(item: indexPath.item-1, section: indexPath.section)
+        let  previousFrame = self.layoutAttributesForItem(at: previousIndexPath)?.frame
         let  previousFrameRightPoint = previousFrame!.origin.x + previousFrame!.size.width
         let  currentFrame = currentItemAttributes!.frame
-        let  strecthedCurrentFrame = CGRectMake(sectionInset.left,
-                    currentFrame.origin.y,
-                    layoutWidth,
-                    currentFrame.size.height)
+        let  strecthedCurrentFrame = CGRect(x: sectionInset.left,
+                    y: currentFrame.origin.y,
+                    width: layoutWidth,
+                    height: currentFrame.size.height)
         
-        let isFirstItemInRow = !CGRectIntersectsRect(previousFrame!, strecthedCurrentFrame)
+        let isFirstItemInRow = !previousFrame!.intersects(strecthedCurrentFrame)
         
         if  isFirstItemInRow {
             currentItemAttributes?.alignFrameWithSectionInset(sectionInset)
@@ -64,7 +64,7 @@ class NotFixedFlowLayout: UICollectionViewFlowLayout {
 // MARK: - <#Description#>
 extension UICollectionViewLayoutAttributes {
     
-    func alignFrameWithSectionInset(sectionInset: UIEdgeInsets) {
+    func alignFrameWithSectionInset(_ sectionInset: UIEdgeInsets) {
         
         var frame = self.frame
         frame.origin.x = sectionInset.left

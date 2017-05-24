@@ -10,19 +10,19 @@ import UIKit
 
 class NoSolidWideViewController: UIViewController {
 
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         
         let layout = NotFixedFlowLayout()
         layout.minimumLineSpacing = 12
         layout.sectionInset = UIEdgeInsetsMake(12, 12, 12, 5)
         
-        let temporaryCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        temporaryCollectionView.backgroundColor = UIColor.whiteColor()
+        let temporaryCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        temporaryCollectionView.backgroundColor = UIColor.white
         temporaryCollectionView.backgroundView = nil
         temporaryCollectionView.delegate = self
         temporaryCollectionView.dataSource = self
         temporaryCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        temporaryCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
+        temporaryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
         return temporaryCollectionView
     }()
     
@@ -39,14 +39,14 @@ class NoSolidWideViewController: UIViewController {
      配置位置
      */
     func configurationLocation() {
-        collectionView.snp_makeConstraints { (make) -> Void in
+        collectionView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         configurationView()
         configurationLocation()
     }
@@ -62,32 +62,32 @@ class NoSolidWideViewController: UIViewController {
 // MARK: - UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 extension NoSolidWideViewController: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return array.count
     }
 
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let text = array[indexPath.row] as NSString
-        let size: CGSize = text.sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(16.0)])
+        let size: CGSize = text.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)])
         let width = checkCellLimitWidth(ceil(size.width))
-        return CGSizeMake(width, 35)
+        return CGSize(width: width, height: 35)
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(UICollectionViewCell.self), forIndexPath: indexPath)
-        cell.contentView.backgroundColor = UIColor.redColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(UICollectionViewCell.self), for: indexPath)
+        cell.contentView.backgroundColor = UIColor.red
         return cell
     }
     
-    func  checkCellLimitWidth(cellWidth: CGFloat) -> CGFloat {
+    func  checkCellLimitWidth(_ cellWidth: CGFloat) -> CGFloat {
         
         let limitWidth = self.view.frame.width-12-5
         if  cellWidth >= limitWidth {

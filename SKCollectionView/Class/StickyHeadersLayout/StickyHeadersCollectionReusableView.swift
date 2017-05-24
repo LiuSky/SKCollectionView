@@ -10,12 +10,12 @@ import UIKit
 
 class StickyHeadersCollectionReusableView: UICollectionReusableView {
     
-    private lazy var titleLabel: UILabel = {
+    fileprivate lazy var titleLabel: UILabel = {
        
         let temporaryLabel = UILabel()
-        temporaryLabel.backgroundColor = UIColor.clearColor()
-        temporaryLabel.textAlignment = .Left
-        temporaryLabel.textColor = UIColor.whiteColor()
+        temporaryLabel.backgroundColor = UIColor.clear
+        temporaryLabel.textAlignment = .left
+        temporaryLabel.textColor = UIColor.white
         return temporaryLabel
     }()
     
@@ -26,7 +26,7 @@ class StickyHeadersCollectionReusableView: UICollectionReusableView {
     
     
     func configurationLocation() {
-        titleLabel.snp_makeConstraints { (make) -> Void in
+        titleLabel.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(10)
             make.top.equalTo(10)
             make.right.equalTo(-10)
@@ -45,7 +45,7 @@ class StickyHeadersCollectionReusableView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.redColor()
+        backgroundColor = UIColor.red
         configurationView()
         configurationLocation()
     }

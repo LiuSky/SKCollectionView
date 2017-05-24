@@ -19,23 +19,23 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
     
     
     //返回YES使集合视图重新查询几何信息的布局
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
     //先调用 super，只返回当前可见 elements 的 attributes，包括 cells, supplementary views, 和 decoration views
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         //先调用 super，只返回当前可见 elements 的 attributes，包括 cells, supplementary views, 和 decoration views
-        var layoutAttributes = super.layoutAttributesForElementsInRect(rect)
+        var layoutAttributes = super.layoutAttributesForElements(in: rect)
         
         
         let headersNeedingLayout = NSMutableIndexSet()
         
         //找出当前 cell 对应的 section 索引
         for attributes in layoutAttributes! {
-            if attributes.representedElementCategory == .Cell {
-                headersNeedingLayout.addIndex(attributes.indexPath.section)
+            if attributes.representedElementCategory == .cell {
+                headersNeedingLayout.add(attributes.indexPath.section)
             }
         }
         
@@ -43,17 +43,17 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
         for attributes in layoutAttributes! {
             if let elementKind = attributes.representedElementKind {
                 if elementKind == UICollectionElementKindSectionHeader {
-                    headersNeedingLayout.removeIndex(attributes.indexPath.section)
+                    headersNeedingLayout.remove(attributes.indexPath.section)
                 }
             }
         }
         
         //将刚移出屏幕的 header（Missing Headers）加入 layoutAttributes
-        headersNeedingLayout.enumerateIndexesUsingBlock { index, stop in
-            let indexPath = NSIndexPath(forItem: 0, inSection: index)
-            let attributes = self.layoutAttributesForSupplementaryViewOfKind(UICollectionElementKindSectionHeader, atIndexPath: indexPath)
+        headersNeedingLayout.enumerate({ index, stop in
+            let indexPath = IndexPath(item: 0, section: index)
+            let attributes = self.layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath)
             layoutAttributes!.append(attributes!)
-        }
+        })
         
         
         /*经过上面的操作，layoutAttributes 里保存着当前屏幕上所有元素 + 上一个 section header 的 attributes，接下来我们找出这两个 header 的 attributes（接上 TODO）
@@ -72,10 +72,10 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
                     let section = attributes.indexPath.section
                     
                     //分别返回当前 section 中第一个 item 和 最后一个 item 所对应的 attributes
-                    let attributesForFirstItemInSection = layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: section))
+                    let attributesForFirstItemInSection = layoutAttributesForItem(at: IndexPath(item: 0, section: section))
                     
                     
-                    let attributesForLastItemInSection = layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: collectionView!.numberOfItemsInSection(section) - 1, inSection: section))
+                    let attributesForLastItemInSection = layoutAttributesForItem(at: IndexPath(item: collectionView!.numberOfItems(inSection: section) - 1, section: section))
                     
                     //得到 header 的 frame
                     var frame = attributes.frame
@@ -84,8 +84,8 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
                     let offset = collectionView!.contentOffset.y + 64
                     
                     //接下来我们来践行一开始提到的三个规则
-                    let minY = CGRectGetMinY(attributesForFirstItemInSection!.frame) - frame.height
-                    let maxY = CGRectGetMaxY(attributesForLastItemInSection!.frame) - frame.height
+                    let minY = attributesForFirstItemInSection!.frame.minY - frame.height
+                    let maxY = attributesForLastItemInSection!.frame.maxY - frame.height
                     
                     //minY ≤ offset ≤ maxY
                     let y = min(max(offset, minY), maxY)

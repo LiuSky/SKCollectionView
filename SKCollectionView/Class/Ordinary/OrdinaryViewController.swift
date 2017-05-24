@@ -11,20 +11,20 @@ import UIKit
 class OrdinaryViewController: UIViewController {
 
     
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
        
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .Vertical
+        layout.scrollDirection = .vertical
 //        layout.minimumLineSpacing = 20.0
 //        layout.minimumInteritemSpacing = 10.0
-        layout.itemSize = CGSizeMake(100,100)
+        layout.itemSize = CGSize(width: 100,height: 100)
         
-        let temporartCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        temporartCollectionView.backgroundColor = UIColor.whiteColor()
+        let temporartCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        temporartCollectionView.backgroundColor = UIColor.white
         temporartCollectionView.backgroundView = nil
         temporartCollectionView.dataSource = self
         temporartCollectionView.delegate = self
-        temporartCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
+        temporartCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
         return temporartCollectionView
     }()
     
@@ -40,7 +40,7 @@ class OrdinaryViewController: UIViewController {
      配置位置
      */
     func configurationLocation() {
-        collectionView.snp_makeConstraints { (make) -> Void in
+        collectionView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
     }
@@ -48,7 +48,7 @@ class OrdinaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         configurationView()
         configurationLocation()
@@ -64,19 +64,19 @@ class OrdinaryViewController: UIViewController {
 extension OrdinaryViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(UICollectionViewCell.self), forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(UICollectionViewCell.self), for: indexPath)
         
-        cell.contentView.backgroundColor = UIColor.redColor()
+        cell.contentView.backgroundColor = UIColor.red
         return cell
     }
 }
