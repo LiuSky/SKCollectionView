@@ -36,7 +36,7 @@ final class NotFixedLayoutAttributes: UICollectionViewLayoutAttributes {
             }
         }
         return false
-    }
+    }   
 }
 
 

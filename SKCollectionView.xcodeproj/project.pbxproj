@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		338ACF621ED6642700840C5D /* TrackingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF611ED6642700840C5D /* TrackingScrollView.swift */; };
+		338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */; };
+		338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */; };
+		338ACF681ED6751C00840C5D /* AppStoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF671ED6751C00840C5D /* AppStoreCollectionViewController.swift */; };
 		33E627421C8FF408000EEE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E627411C8FF408000EEE87 /* AppDelegate.swift */; };
 		33E627441C8FF408000EEE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E627431C8FF408000EEE87 /* ViewController.swift */; };
 		33E627491C8FF408000EEE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33E627481C8FF408000EEE87 /* Assets.xcassets */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		02707D4BB3B495F886018612 /* Pods_SKCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		338ACF611ED6642700840C5D /* TrackingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingScrollView.swift; sourceTree = "<group>"; };
+		338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfHeaderFooterView.swift; sourceTree = "<group>"; };
+		338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewShelfLayout.swift; sourceTree = "<group>"; };
+		338ACF671ED6751C00840C5D /* AppStoreCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreCollectionViewController.swift; sourceTree = "<group>"; };
 		33E6273E1C8FF408000EEE87 /* SKCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E627411C8FF408000EEE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33E627431C8FF408000EEE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 		33E627531C8FF56F000EEE87 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				33FD67F91ED586A800D120A6 /* AppleStore */,
 				33E6276D1C910717000EEE87 /* NoSolidWide */,
 				33E627541C8FF56F000EEE87 /* Ordinary */,
 				33E627561C8FF56F000EEE87 /* Pinterest */,
@@ -131,6 +140,17 @@
 				33E627701C91079D000EEE87 /* NotFixedFlowLayout.swift */,
 			);
 			path = NoSolidWide;
+			sourceTree = "<group>";
+		};
+		33FD67F91ED586A800D120A6 /* AppleStore */ = {
+			isa = PBXGroup;
+			children = (
+				338ACF611ED6642700840C5D /* TrackingScrollView.swift */,
+				338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */,
+				338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */,
+				338ACF671ED6751C00840C5D /* AppStoreCollectionViewController.swift */,
+			);
+			path = AppleStore;
 			sourceTree = "<group>";
 		};
 		767535A99C9BBFBB55441D19 /* Frameworks */ = {
@@ -274,9 +294,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338ACF681ED6751C00840C5D /* AppStoreCollectionViewController.swift in Sources */,
 				33E627611C8FF56F000EEE87 /* PinterestLayout.swift in Sources */,
 				33E627441C8FF408000EEE87 /* ViewController.swift in Sources */,
+				338ACF621ED6642700840C5D /* TrackingScrollView.swift in Sources */,
+				338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */,
 				33E627651C8FF56F000EEE87 /* StickyHeadersViewController.swift in Sources */,
+				338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */,
 				33E627641C8FF56F000EEE87 /* StickyHeadersLayout.swift in Sources */,
 				33E627601C8FF56F000EEE87 /* OrdinaryViewController.swift in Sources */,
 				33E627631C8FF56F000EEE87 /* StickyHeadersCollectionReusableView.swift in Sources */,
@@ -389,7 +413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BU9U9E5458;
 				INFOPLIST_FILE = SKCollectionView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mike.SKCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,7 +428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BU9U9E5458;
 				INFOPLIST_FILE = SKCollectionView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mike.SKCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
