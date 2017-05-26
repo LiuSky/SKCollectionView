@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33142D8F1ED6AEE300CC1688 /* more_plist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33142D8E1ED6AEE300CC1688 /* more_plist.plist */; };
+		33142D911ED6AF3200CC1688 /* QQLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33142D901ED6AF3200CC1688 /* QQLayout.swift */; };
+		33142D931ED6BD4B00CC1688 /* QQCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33142D921ED6BD4B00CC1688 /* QQCollectionViewController.swift */; };
 		338ACF621ED6642700840C5D /* TrackingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF611ED6642700840C5D /* TrackingScrollView.swift */; };
 		338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */; };
 		338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		02707D4BB3B495F886018612 /* Pods_SKCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33142D8E1ED6AEE300CC1688 /* more_plist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = more_plist.plist; sourceTree = "<group>"; };
+		33142D901ED6AF3200CC1688 /* QQLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQLayout.swift; sourceTree = "<group>"; };
+		33142D921ED6BD4B00CC1688 /* QQCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQCollectionViewController.swift; sourceTree = "<group>"; };
 		338ACF611ED6642700840C5D /* TrackingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingScrollView.swift; sourceTree = "<group>"; };
 		338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfHeaderFooterView.swift; sourceTree = "<group>"; };
 		338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewShelfLayout.swift; sourceTree = "<group>"; };
@@ -63,6 +69,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33142D8D1ED6AEE300CC1688 /* QQIcon */ = {
+			isa = PBXGroup;
+			children = (
+				33142D8E1ED6AEE300CC1688 /* more_plist.plist */,
+				33142D901ED6AF3200CC1688 /* QQLayout.swift */,
+				33142D921ED6BD4B00CC1688 /* QQCollectionViewController.swift */,
+			);
+			path = QQIcon;
+			sourceTree = "<group>";
+		};
 		33E627351C8FF408000EEE87 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +113,7 @@
 		33E627531C8FF56F000EEE87 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				33142D8D1ED6AEE300CC1688 /* QQIcon */,
 				33FD67F91ED586A800D120A6 /* AppleStore */,
 				33E6276D1C910717000EEE87 /* NoSolidWide */,
 				33E627541C8FF56F000EEE87 /* Ordinary */,
@@ -235,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33E6274C1C8FF408000EEE87 /* LaunchScreen.storyboard in Resources */,
+				33142D8F1ED6AEE300CC1688 /* more_plist.plist in Resources */,
 				33E627491C8FF408000EEE87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,8 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33142D931ED6BD4B00CC1688 /* QQCollectionViewController.swift in Sources */,
 				338ACF681ED6751C00840C5D /* AppStoreCollectionViewController.swift in Sources */,
 				33E627611C8FF56F000EEE87 /* PinterestLayout.swift in Sources */,
+				33142D911ED6AF3200CC1688 /* QQLayout.swift in Sources */,
 				33E627441C8FF408000EEE87 /* ViewController.swift in Sources */,
 				338ACF621ED6642700840C5D /* TrackingScrollView.swift in Sources */,
 				338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */,

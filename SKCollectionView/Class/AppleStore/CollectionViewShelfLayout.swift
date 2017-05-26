@@ -51,7 +51,7 @@ open class CollectionViewShelfLayout: UICollectionViewLayout {
     fileprivate var preparingForCellPanning = false
     
     public override init() {
-        super.init()
+        super.init() 
         register(ShelfHeaderFooterView.self, forDecorationViewOfKind: ShelfElementKindCollectionHeader)
         register(ShelfHeaderFooterView.self, forDecorationViewOfKind: ShelfElementKindCollectionFooter)
     }

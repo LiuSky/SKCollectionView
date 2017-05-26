@@ -102,16 +102,16 @@ public class NotFixedFlowLayout: UICollectionViewLayout {
                     cache.append(attributes)
                 } else {
                     
-                    let previousFrame = cache[item - 1]
-                    let previousFrameRightPoint = previousFrame.frame.origin.x + previousFrame.customWidth
-                    let previousFrameYPoint = previousFrame.frame.maxY
+                    let previousItem = cache[item - 1]
+                    let previousFrameRightPoint = previousItem.frame.origin.x + previousItem.customWidth
+                    let previousFrameYPoint = previousItem.frame.maxY
                     if previousFrameRightPoint + cellPadding + itemWidth > width {
                         
                         attributes.frame = CGRect(x: 0, y: previousFrameYPoint + cellPadding, width: itemWidth, height: self.cellHeight)
                         cache.append(attributes)
                     } else {
                         
-                        attributes.frame = CGRect(x: previousFrameRightPoint + cellPadding, y: previousFrame.frame.origin.y, width: itemWidth, height: self.cellHeight)
+                        attributes.frame = CGRect(x: previousFrameRightPoint + cellPadding, y: previousItem.frame.origin.y, width: itemWidth, height: self.cellHeight)
                         cache.append(attributes)
                     }
                 }
