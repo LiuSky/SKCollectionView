@@ -10,6 +10,9 @@
 		33142D8F1ED6AEE300CC1688 /* more_plist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33142D8E1ED6AEE300CC1688 /* more_plist.plist */; };
 		33142D911ED6AF3200CC1688 /* QQLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33142D901ED6AF3200CC1688 /* QQLayout.swift */; };
 		33142D931ED6BD4B00CC1688 /* QQCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33142D921ED6BD4B00CC1688 /* QQCollectionViewController.swift */; };
+		336DBB531EEFB96C0004D0CD /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DBB521EEFB96C0004D0CD /* Layout.swift */; };
+		336DBB551EEFBBB80004D0CD /* CellAnimationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DBB541EEFBBB80004D0CD /* CellAnimationsController.swift */; };
+		336DBB571EEFBD170004D0CD /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DBB561EEFBD170004D0CD /* ContentCell.swift */; };
 		338ACF621ED6642700840C5D /* TrackingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF611ED6642700840C5D /* TrackingScrollView.swift */; };
 		338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */; };
 		338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */; };
@@ -34,6 +37,9 @@
 		33142D8E1ED6AEE300CC1688 /* more_plist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = more_plist.plist; sourceTree = "<group>"; };
 		33142D901ED6AF3200CC1688 /* QQLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQLayout.swift; sourceTree = "<group>"; };
 		33142D921ED6BD4B00CC1688 /* QQCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQCollectionViewController.swift; sourceTree = "<group>"; };
+		336DBB521EEFB96C0004D0CD /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		336DBB541EEFBBB80004D0CD /* CellAnimationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAnimationsController.swift; sourceTree = "<group>"; };
+		336DBB561EEFBD170004D0CD /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		338ACF611ED6642700840C5D /* TrackingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingScrollView.swift; sourceTree = "<group>"; };
 		338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfHeaderFooterView.swift; sourceTree = "<group>"; };
 		338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewShelfLayout.swift; sourceTree = "<group>"; };
@@ -79,6 +85,16 @@
 			path = QQIcon;
 			sourceTree = "<group>";
 		};
+		336DBB511EEFB8EF0004D0CD /* CellAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				336DBB521EEFB96C0004D0CD /* Layout.swift */,
+				336DBB541EEFBBB80004D0CD /* CellAnimationsController.swift */,
+				336DBB561EEFBD170004D0CD /* ContentCell.swift */,
+			);
+			path = CellAnimations;
+			sourceTree = "<group>";
+		};
 		33E627351C8FF408000EEE87 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +129,7 @@
 		33E627531C8FF56F000EEE87 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				336DBB511EEFB8EF0004D0CD /* CellAnimations */,
 				33142D8D1ED6AEE300CC1688 /* QQIcon */,
 				33FD67F91ED586A800D120A6 /* AppleStore */,
 				33E6276D1C910717000EEE87 /* NoSolidWide */,
@@ -313,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33142D931ED6BD4B00CC1688 /* QQCollectionViewController.swift in Sources */,
+				336DBB531EEFB96C0004D0CD /* Layout.swift in Sources */,
 				338ACF681ED6751C00840C5D /* AppStoreCollectionViewController.swift in Sources */,
 				33E627611C8FF56F000EEE87 /* PinterestLayout.swift in Sources */,
 				33142D911ED6AF3200CC1688 /* QQLayout.swift in Sources */,
@@ -320,7 +338,9 @@
 				338ACF621ED6642700840C5D /* TrackingScrollView.swift in Sources */,
 				338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */,
 				33E627651C8FF56F000EEE87 /* StickyHeadersViewController.swift in Sources */,
+				336DBB571EEFBD170004D0CD /* ContentCell.swift in Sources */,
 				338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */,
+				336DBB551EEFBBB80004D0CD /* CellAnimationsController.swift in Sources */,
 				33E627641C8FF56F000EEE87 /* StickyHeadersLayout.swift in Sources */,
 				33E627601C8FF56F000EEE87 /* OrdinaryViewController.swift in Sources */,
 				33E627631C8FF56F000EEE87 /* StickyHeadersCollectionReusableView.swift in Sources */,
