@@ -79,6 +79,13 @@
 			path = QQIcon;
 			sourceTree = "<group>";
 		};
+		336DBB511EEFB8EF0004D0CD /* CellAnimations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CellAnimations;
+			sourceTree = "<group>";
+		};
 		33E627351C8FF408000EEE87 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +120,7 @@
 		33E627531C8FF56F000EEE87 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				336DBB511EEFB8EF0004D0CD /* CellAnimations */,
 				33142D8D1ED6AEE300CC1688 /* QQIcon */,
 				33FD67F91ED586A800D120A6 /* AppleStore */,
 				33E6276D1C910717000EEE87 /* NoSolidWide */,
