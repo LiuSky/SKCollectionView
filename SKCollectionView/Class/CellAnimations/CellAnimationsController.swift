@@ -12,6 +12,7 @@ class CellAnimationsController: UICollectionViewController {
     
     var colors: [UIColor] = []
     var layout = Layout()
+    var bounceEnabled = false
     
     init() {
         super.init(collectionViewLayout: layout)
@@ -40,8 +41,6 @@ class CellAnimationsController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         layout.selectedCellIndexPath = layout.selectedCellIndexPath == indexPath ? nil : indexPath
-        
-        let bounceEnabled = false
         
         UIView.animate(
             withDuration: 0.4,
