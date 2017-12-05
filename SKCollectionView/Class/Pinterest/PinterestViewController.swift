@@ -98,9 +98,9 @@ extension PinterestViewController: PinterestLayoutDelegate {
         let size: CGSize!
         
         if indexPath.row%3 == 0 {
-            size = CGSize(width: 100, height: 80)
+            size = CGSize(width: 1, height: 80)
         } else {
-            size = CGSize(width: 100, height: 110)
+            size = CGSize(width: 1, height: 110)
         }
         
         

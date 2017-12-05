@@ -55,7 +55,7 @@ public class TrackingScrollView: UIScrollView {
     }
     
     
-    // MARK - 询问delegate，两个手势是否同时接收消息，返回YES同事接收。返回NO，不同是接收（如果另外一个手势返回YES，则并不能保证不同时接收消息）the default implementation returns NO。
+    // MARK - 询问delegate，两个手势是否同时接收消息，返回YES同时接收。返回NO，不同是接收（如果另外一个手势返回YES，则并不能保证不同时接收消息）the default implementation returns NO。
     // 这个函数一般在一个手势接收者要阻止另外一个手势接收自己的消息的时候调用
     @objc fileprivate func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer, panGestureRecognizer === self.panGestureRecognizer else {
