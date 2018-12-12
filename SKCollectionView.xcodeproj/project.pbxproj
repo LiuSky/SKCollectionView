@@ -17,6 +17,8 @@
 		338ACF641ED6663300840C5D /* ShelfHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */; };
 		338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */; };
 		338ACF681ED6751C00840C5D /* AppStoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ACF671ED6751C00840C5D /* AppStoreCollectionViewController.swift */; };
+		33933A2521C0B5F400046C77 /* UICollectionViewLeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33933A2421C0B5F400046C77 /* UICollectionViewLeftAlignedLayout.swift */; };
+		33933A2721C0B97600046C77 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33933A2621C0B97500046C77 /* AlignedCollectionViewFlowLayout.swift */; };
 		33E627421C8FF408000EEE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E627411C8FF408000EEE87 /* AppDelegate.swift */; };
 		33E627441C8FF408000EEE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E627431C8FF408000EEE87 /* ViewController.swift */; };
 		33E627491C8FF408000EEE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33E627481C8FF408000EEE87 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		338ACF631ED6663300840C5D /* ShelfHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfHeaderFooterView.swift; sourceTree = "<group>"; };
 		338ACF651ED6673900840C5D /* CollectionViewShelfLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewShelfLayout.swift; sourceTree = "<group>"; };
 		338ACF671ED6751C00840C5D /* AppStoreCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreCollectionViewController.swift; sourceTree = "<group>"; };
+		33933A2421C0B5F400046C77 /* UICollectionViewLeftAlignedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewLeftAlignedLayout.swift; sourceTree = "<group>"; };
+		33933A2621C0B97500046C77 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		33E6273E1C8FF408000EEE87 /* SKCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E627411C8FF408000EEE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33E627431C8FF408000EEE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -170,8 +174,10 @@
 		33E6276D1C910717000EEE87 /* NoSolidWide */ = {
 			isa = PBXGroup;
 			children = (
+				33933A2621C0B97500046C77 /* AlignedCollectionViewFlowLayout.swift */,
 				33E6276E1C910730000EEE87 /* NoSolidWideViewController.swift */,
 				33E627701C91079D000EEE87 /* NotFixedFlowLayout.swift */,
+				33933A2421C0B5F400046C77 /* UICollectionViewLeftAlignedLayout.swift */,
 			);
 			path = NoSolidWide;
 			sourceTree = "<group>";
@@ -217,7 +223,6 @@
 				33E6273B1C8FF408000EEE87 /* Frameworks */,
 				33E6273C1C8FF408000EEE87 /* Resources */,
 				7F29763CFF3F0F33C8E97BB2 /* [CP] Embed Pods Frameworks */,
-				996B66F1A9FE02C10EEA8B20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,7 +240,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Sky;
 				TargetAttributes = {
 					33E6273D1C8FF408000EEE87 = {
@@ -301,7 +306,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SKCollectionView/Pods-SKCollectionView-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SKCollectionView/Pods-SKCollectionView-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -310,22 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKCollectionView/Pods-SKCollectionView-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		996B66F1A9FE02C10EEA8B20 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKCollectionView/Pods-SKCollectionView-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SKCollectionView/Pods-SKCollectionView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -347,6 +337,8 @@
 				336DBB571EEFBD170004D0CD /* ContentCell.swift in Sources */,
 				338ACF661ED6673900840C5D /* CollectionViewShelfLayout.swift in Sources */,
 				336DBB551EEFBBB80004D0CD /* CellAnimationsController.swift in Sources */,
+				33933A2721C0B97600046C77 /* AlignedCollectionViewFlowLayout.swift in Sources */,
+				33933A2521C0B5F400046C77 /* UICollectionViewLeftAlignedLayout.swift in Sources */,
 				33E627641C8FF56F000EEE87 /* StickyHeadersLayout.swift in Sources */,
 				33E627601C8FF56F000EEE87 /* OrdinaryViewController.swift in Sources */,
 				33E627631C8FF56F000EEE87 /* StickyHeadersCollectionReusableView.swift in Sources */,
@@ -383,12 +375,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -435,12 +429,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -480,7 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mike.SKCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -495,7 +491,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mike.SKCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

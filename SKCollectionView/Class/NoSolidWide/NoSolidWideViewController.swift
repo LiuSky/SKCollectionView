@@ -97,7 +97,7 @@ extension NoSolidWideViewController: NotFixedLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, widthForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
         
         let text = array[indexPath.row] as NSString
-        let size: CGSize = text.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.0)])
+        let size: CGSize = text.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0)])
         let width = checkCellLimitWidth(ceil(size.width))
         return width
     }

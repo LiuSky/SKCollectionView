@@ -42,7 +42,7 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
         // 遍历当前屏幕上显示的所有 header，然后将还显示在屏幕上的 header 对应的索引从 headerNeedingLayout 中移除，这样就只保持了对刚刚移出屏幕 header 的追踪
         for attributes in layoutAttributes! {
             if let elementKind = attributes.representedElementKind {
-                if elementKind == UICollectionElementKindSectionHeader {
+                if elementKind == UICollectionView.elementKindSectionHeader {
                     headersNeedingLayout.remove(attributes.indexPath.section)
                 }
             }
@@ -51,7 +51,7 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
         //将刚移出屏幕的 header（Missing Headers）加入 layoutAttributes
         headersNeedingLayout.enumerate({ index, stop in
             let indexPath = IndexPath(item: 0, section: index)
-            let attributes = self.layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath)
+            let attributes = self.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: indexPath)
             layoutAttributes!.append(attributes!)
         })
         
@@ -66,7 +66,7 @@ class StickyHeadersLayout: UICollectionViewFlowLayout {
             if let elementKind = attributes.representedElementKind {
                 
                 
-                if elementKind == UICollectionElementKindSectionHeader {
+                if elementKind == UICollectionView.elementKindSectionHeader {
                     
                     // 找出 header 当前所在的 section
                     let section = attributes.indexPath.section

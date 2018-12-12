@@ -26,7 +26,7 @@ class StickyHeadersViewController: UIViewController {
         temporaryCollectionView.backgroundView = nil
         temporaryCollectionView.dataSource = self
         temporaryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(UICollectionViewCell.self))
-       temporaryCollectionView.register(StickyHeadersCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: NSStringFromClass(StickyHeadersCollectionReusableView.self))
+        temporaryCollectionView.register(StickyHeadersCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: NSStringFromClass(StickyHeadersCollectionReusableView.self))
         return temporaryCollectionView
     }()
     

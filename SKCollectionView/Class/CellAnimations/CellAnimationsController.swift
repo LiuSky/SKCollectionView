@@ -47,7 +47,7 @@ class CellAnimationsController: UICollectionViewController {
             delay: 0.0,
             usingSpringWithDamping: bounceEnabled ? 0.5 : 1.0,
             initialSpringVelocity: bounceEnabled ? 2.0 : 0.0,
-            options: UIViewAnimationOptions(),
+            options: UIView.AnimationOptions(),
             animations: {
                 self.layout.invalidateLayout()
                 self.collectionView?.layoutIfNeeded()

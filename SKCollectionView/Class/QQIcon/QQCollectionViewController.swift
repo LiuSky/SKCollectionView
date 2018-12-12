@@ -14,7 +14,7 @@ class QQCollectionViewController: UICollectionViewController {
 
     init() {
         let layout = QQLayout()
-        layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.spacing = 20
         layout.horizontalNumber = 3
         layout.verticalNumber = 9

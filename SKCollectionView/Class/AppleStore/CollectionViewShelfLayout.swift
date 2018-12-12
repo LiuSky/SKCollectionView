@@ -216,7 +216,7 @@ open class CollectionViewShelfLayout: UICollectionViewLayout {
     }
     
     open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let headerAndFooterAttributes: [UICollectionViewLayoutAttributes] = [ headerViewLayoutAttributes, footerViewLayoutAttributes ].flatMap({ $0 }).filter { (attributes) -> Bool in
+        let headerAndFooterAttributes: [UICollectionViewLayoutAttributes] = [ headerViewLayoutAttributes, footerViewLayoutAttributes ].compactMap({ $0 }).filter { (attributes) -> Bool in
             return rect.intersects(attributes.frame)
         }
         

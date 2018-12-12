@@ -13,16 +13,16 @@ import UIKit
 final class QQLayout: UICollectionViewLayout {
 
     // MARK - sectionInset
-    open var sectionInset: UIEdgeInsets = UIEdgeInsets.zero
+    public var sectionInset: UIEdgeInsets = UIEdgeInsets.zero
 
     // MARK - 水平细胞之间的间距。默认值* 8.0 *
-    open var spacing: CGFloat = 8.0
+    public var spacing: CGFloat = 8.0
     
     // MARK - 垂直几个
-    open var verticalNumber = 0
+    public var verticalNumber = 0
 
     // MARK - 水平几个
-    open var horizontalNumber = 0
+    public var horizontalNumber = 0
     
     // MARK - 缓存每个Item
     private var cache = [UICollectionViewLayoutAttributes]()
